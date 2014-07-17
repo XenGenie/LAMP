@@ -607,6 +607,7 @@ if(isset($_GET['origin'])){
     // git("fetch --all");
     git("pull -f origin master");   
     // mysys('ls');  
+    git("status");  
 
     if(mysys("ls index.php") == "index.php"){
       // success
