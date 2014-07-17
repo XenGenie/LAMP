@@ -597,10 +597,11 @@ if(isset($_GET['origin'])){
     mysys("rm index.php");
     mysys("rm LICENSE");
     mysys("rm README.md");
+    mysys("rm .git -r");
     
     // Because this was downloaded via git... lets remove the genie.
 
-    git("remote rm origin");
+    git("init");
     git("remote add origin $_GET[origin]");
     // git("fetch --all");
     git("pull -f origin master");   
