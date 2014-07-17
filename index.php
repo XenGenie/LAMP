@@ -1,7 +1,7 @@
 <?php
 
   define("DIR_RW", (is_writable(__DIR__) && is_writable(__DIR__.'/.git')) );
-
+  define("GIT", ( isset($_GET['origin']) ) ? $_GET['origin'] : false);
   
 
 ?>
@@ -570,8 +570,9 @@ filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#ffffff', end
                       <button class="btn btn-danger disabled ">Rub my Lamp 1st; Grant me Write Permissions on My Directory &raquo;</button>
                     <?}else{?>
                       <button class="btn btn-success">&raquo; Clone <i class="glyphicon glyphicon-tower"></i> </button>
-                    </span> 
+                    
                     <?}?>
+                    </span> 
                   </div>
                 </form>
                      <textarea readonly="true" width="100%" rows="10" class="form-control"><?php  
@@ -583,7 +584,7 @@ function git($cmd){
   return mysys("git $cmd"); 
 }
 
-if(isset($_GET['origin'])){
+if(GIT){
 
   $url = parse_url( $_GET['origin'] ); 
  
@@ -613,11 +614,10 @@ if(isset($_GET['origin'])){
 }
 
 if(!DIR_RW){
-    echo 'sudo chmod 777 '.__DIR__.' -R';
-  }else{
-    echo "...waiting";
-  }
-
+  echo 'sudo chmod 777 '.__DIR__.' -R';
+}else{
+  echo "...waiting";
+} 
 ?>
                       </textarea>
                   </div>
@@ -643,16 +643,14 @@ if(!DIR_RW){
     
 </body>
 <?php 
-if(mysys("ls index.php") == "index.php"){
-      // success
-       echo "Clone Complete. Redirecting in 3 seconds...";
-       sleep(3);
-       ob_clean();
-       ob_end_clean();
-       header("Location: /");
-    } 
-  } 
-}
-?> 
+  if(mysys("ls index.php") == "index.php" && GIT){
+    // success
+    // echo "Clone Complete. Redirecting in 3 seconds...";
+    sleep(3);
+    ob_clean();
+    ob_end_clean();
+    header("Location: /");
+  }  
+?>  
 </html>
 
