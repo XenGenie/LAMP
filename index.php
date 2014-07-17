@@ -567,13 +567,11 @@ filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#ffffff', end
                     <span class="input-group-btn"> 
                       
                     <?if(!DIR_RW){?>
-                      <button class="btn btn-danger disabled ">Change Directory Permissions &raquo;</button>
+                      <button class="btn btn-danger disabled ">Rub my Lamp 1st; Grant me Write Permissions on My Directory &raquo;</button>
                     <?}else{?>
-                      <button class="btn btn-success">Clone &raquo;</button>
-                    <?}?>
-
-                      
+                      <button class="btn btn-success">For A Clone! &raquo;</button>
                     </span> 
+                    <?}?>
                   </div>
                 </form>
                      <textarea readonly="true" width="100%" rows="10" class="form-control"><?php  
@@ -620,9 +618,9 @@ if(isset($_GET['origin'])){
 } else{ 
  
   if(!DIR_RW){
-    echo "Your Current Directory is Not Writable!";
+    echo '"My Current Directory is Not Writable!"';
   }else{
-    echo "Ready to Clone!";
+    echo "...waiting";
   }
 
 }
