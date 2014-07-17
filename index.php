@@ -1,6 +1,6 @@
 <?php
 
-  define("DIR_RW", is_writable(__DIR__));
+  define("DIR_RW", (is_writable(__DIR__) && is_writable(__DIR__.'/.git')) );
 
   
 
@@ -618,7 +618,7 @@ if(isset($_GET['origin'])){
 } else{ 
  
   if(!DIR_RW){
-    echo '"My Current Directory is Not Writable!"';
+    echo 'sudo chmod 777 '.__DIR__.' -R';
   }else{
     echo "...waiting";
   }
