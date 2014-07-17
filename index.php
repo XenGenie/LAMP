@@ -597,6 +597,8 @@ if(isset($_GET['origin'])){
 
     // Assuming there are no problems...
     mysys("rm index.php");
+    mysys("rm LICENSE");
+    mysys("rm README.md");
     
     // Because this was downloaded via git... lets remove the genie.
 
