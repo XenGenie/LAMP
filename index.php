@@ -613,6 +613,7 @@ if(isset($_GET['origin'])){
        echo "Clone Complete. Redirecting in 3 seconds...";
        sleep(3);
        ob_clean();
+       ob_end_clean();
       header("Location: /");
     } 
   } 
