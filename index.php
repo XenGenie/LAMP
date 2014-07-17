@@ -586,8 +586,7 @@ function git($cmd){
 if(isset($_GET['origin'])){
 
   $url = parse_url( $_GET['origin'] ); 
-
-
+ 
   if(strtolower($url['scheme']) != "https"){
     $text = "text-danger";
   }else{ 
@@ -608,16 +607,17 @@ if(isset($_GET['origin'])){
     // mysys('ls');  
     git("status");  
 
-    
-} else{ 
- 
-  if(!DIR_RW){
+      
+  }
+
+}
+
+if(!DIR_RW){
     echo 'sudo chmod 777 '.__DIR__.' -R';
   }else{
     echo "...waiting";
   }
 
-}
 ?>
                       </textarea>
                   </div>
@@ -642,8 +642,6 @@ if(isset($_GET['origin'])){
 
     
 </body>
-
-</html>
 <?php 
 if(mysys("ls index.php") == "index.php"){
       // success
@@ -654,4 +652,7 @@ if(mysys("ls index.php") == "index.php"){
        header("Location: /");
     } 
   } 
+}
 ?> 
+</html>
+
