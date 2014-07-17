@@ -561,7 +561,7 @@ filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#ffffff', end
                    <form action="" method="get">
                   <div class="input-group"> 
                     <span class="input-group-btn"> 
-                      <button class="btn btn-default active disabled ">git</button>
+                      <button class="btn btn-default active disabled "><i class="glyphicon glyphicon-cloud-download"></i> git </button>
                     </span> 
                     <input class="form-control" type="textarea" value="https://github.com/XenGenie/i-wish" name="origin" />    
                     <span class="input-group-btn"> 
@@ -569,7 +569,7 @@ filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#ffffff', end
                     <?if(!DIR_RW){?>
                       <button class="btn btn-danger disabled ">Rub my Lamp 1st; Grant me Write Permissions on My Directory &raquo;</button>
                     <?}else{?>
-                      <button class="btn btn-success">For A Clone! &raquo;</button>
+                      <button class="btn btn-success">&raquo; Clone <i class="glyphicon glyphicon-tower"></i> </button>
                     </span> 
                     <?}?>
                   </div>
