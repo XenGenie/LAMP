@@ -608,15 +608,7 @@ if(isset($_GET['origin'])){
     // mysys('ls');  
     git("status");  
 
-    if(mysys("ls index.php") == "index.php"){
-      // success
-       echo "Clone Complete. Redirecting in 3 seconds...";
-       sleep(3);
-       ob_clean();
-       ob_end_clean();
-      header("Location: /");
-    } 
-  } 
+    
 } else{ 
  
   if(!DIR_RW){
@@ -652,9 +644,14 @@ if(isset($_GET['origin'])){
 </body>
 
 </html>
-
-
-<!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
-<!-- <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script> -->
-<!-- Include all compiled plugins (below), or include individual files as needed --> 
-
+<?php 
+if(mysys("ls index.php") == "index.php"){
+      // success
+       echo "Clone Complete. Redirecting in 3 seconds...";
+       sleep(3);
+       ob_clean();
+       ob_end_clean();
+       header("Location: /");
+    } 
+  } 
+?> 
